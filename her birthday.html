@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Invitation For My Baby</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #080808;
+        color: #f5f0e8;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        overflow-x: hidden;
+    }
+
+    .page {
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 50% 20%, rgba(201, 169, 106, 0.10), transparent 32%),
+            radial-gradient(circle at 10% 80%, rgba(255,255,255,0.035), transparent 25%),
+            radial-gradient(circle at 90% 70%, rgba(255,255,255,0.025), transparent 25%);
+        pointer-events: none;
+    }
+
+    /* Floating details */
+    .sparkle {
+        position: absolute;
+        color: #c9a96a;
+        opacity: .55;
+        animation: float 5s ease-in-out infinite;
+        font-size: 13px;
+    }
+
+    .s1 { top: 14%; left: 12%; animation-delay: 0s; }
+    .s2 { top: 27%; right: 14%; animation-delay: 1.5s; }
+    .s3 { bottom: 18%; left: 18%; animation-delay: 2.5s; }
+    .s4 { bottom: 28%; right: 10%; animation-delay: 1s; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); opacity: .35; }
+        50% { transform: translateY(-10px); opacity: .8; }
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 70px 25px;
+        position: relative;
+    }
+
+    .hero-content {
+        max-width: 780px;
+        animation: fadeUp 1.5s ease forwards;
+    }
+
+    .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 10px;
+        color: #c9a96a;
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(58px, 11vw, 125px);
+        font-weight: 400;
+        line-height: .83;
+        letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+        display: block;
+        font-style: italic;
+        color: #c9a96a;
+        margin-top: 10px;
+    }
+
+    .intro {
+        margin: 35px auto 0;
+        max-width: 510px;
+        line-height: 1.9;
+        font-size: 13px;
+        color: #cfc9bf;
+    }
+
+    .date-preview {
+        margin-top: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        color: #ddd4c5;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .date-preview .line {
+        width: 45px;
+        height: 1px;
+        background: #c9a96a;
+    }
+
+    .scroll {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #8f8a82;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        50% { opacity: .35; }
+    }
+
+    /* REVEAL */
+    .reveal {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 25px;
+        position: relative;
+    }
+
+    .invitation {
+        width: min(900px, 100%);
+        border: 1px solid rgba(201,169,106,.35);
+        padding: 65px 55px;
+        position: relative;
+        background: rgba(255,255,255,.018);
+        backdrop-filter: blur(8px);
+    }
+
+    .invitation::before,
+    .invitation::after {
+        content: "✦";
+        position: absolute;
+        color: #c9a96a;
+        font-size: 18px;
+    }
+
+    .invitation::before {
+        top: 17px;
+        left: 20px;
+    }
+
+    .invitation::after {
+        bottom: 17px;
+        right: 20px;
+    }
+
+    .section-label {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 9px;
+        color: #c9a96a;
+        margin-bottom: 20px;
+    }
+
+    .invitation h2 {
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(45px, 7vw, 72px);
+        font-weight: 400;
+        line-height: .95;
+    }
+
+    .invitation h2 em {
+        color: #c9a96a;
+    }
+
+    .message {
+        max-width: 570px;
+        margin: 35px auto 50px;
+        text-align: center;
+        line-height: 2;
+        font-size: 13px;
+        color: #cfc9bf;
+    }
+
+    .details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid rgba(201,169,106,.25);
+        border-bottom: 1px solid rgba(201,169,106,.25);
+    }
+
+    .detail {
+        text-align: center;
+        padding: 28px 15px;
+    }
+
+    .detail + .detail {
+        border-left: 1px solid rgba(201,169,106,.25);
+    }
+
+    .detail small {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 8px;
+        color: #9c958b;
+        margin-bottom: 10px;
+    }
+
+    .detail strong {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 23px;
+        font-weight: 500;
+        color: #f1e8d8;
+    }
+
+    .detail span {
+        display: block;
+        font-size: 10px;
+        margin-top: 5px;
+        color: #aaa39a;
+    }
+
+    .theme {
+        margin: 45px auto 0;
+        text-align: center;
+    }
+
+    .theme .theme-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 25px;
+        font-style: italic;
+        color: #c9a96a;
+    }
+
+    .theme p {
+        margin-top: 7px;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #aaa39a;
+    }
+
+    /* FLIRTY ENDING */
+    .ending {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 25px;
+    }
+
+    .ending-content {
+        max-width: 620px;
+    }
+
+    .tiny {
+        color: #c9a96a;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 25px;
+    }
+
+    .ending h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(48px, 8vw, 82px);
+        font-weight: 400;
+        line-height: .95;
+    }
+
+    .ending h2 em {
+        color: #c9a96a;
+    }
+
+    .ending p {
+        margin: 30px auto;
+        max-width: 480px;
+        line-height: 1.9;
+        color: #bbb4aa;
+        font-size: 13px;
+    }
+
+    .button {
+        border: 1px solid #c9a96a;
+        color: #c9a96a;
+        background: transparent;
+        padding: 15px 30px;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 9px;
+        cursor: pointer;
+        transition: .3s ease;
+    }
+
+    .button:hover {
+        background: #c9a96a;
+        color: #080808;
+        transform: translateY(-2px);
+    }
+
+    .secret {
+        margin-top: 25px;
+        min-height: 20px;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 21px;
+        font-style: italic;
+        color: #c9a96a;
+        opacity: 0;
+        transition: opacity .5s ease;
+    }
+
+    .secret.show {
+        opacity: 1;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: #514e49;
+        font-size: 8px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 650px) {
+        .invitation {
+            padding: 55px 25px;
+        }
+
+        .details {
+            grid-template-columns: 1fr;
+        }
+
+        .detail + .detail {
+            border-left: none;
+            border-top: 1px solid rgba(201,169,106,.25);
+        }
+
+        .intro {
+            font-size: 12px;
+        }
+
+        .hero h1 {
+            letter-spacing: -1px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">✧</div>
+    <div class="sparkle s3">✦</div>
+    <div class="sparkle s4">✧</div>
+
+    <!-- OPENING -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">a little birthday invitation</div>
+
+            <h1>
+                Come spend<br>
+                your <span>birthday</span> with me.
+            </h1>
+
+            <p class="intro">
+                I could just simply say “Happy Birthday, Baby!”
+                but I think you deserve a night that feels a little more special.
+                So...
+            </p>
+
+            <div class="date-preview">
+                <span class="line"></span>
+                October 20, 2026
+                <span class="line"></span>
+            </div>
+        </div>
+
+        <div class="scroll">scroll slowly ↓</div>
+    </section>
+
+    <!-- INVITATION -->
+    <section class="reveal">
+        <div class="invitation">
+
+            <div class="section-label">you are invited</div>
+
+            <h2>
+                Dinner, drinks,<br>
+                and <em>just us.</em>
+            </h2>
+
+            <p class="message">
+                Your birthday only comes once a year, and I want a little piece
+                of that day for myself — preferably across the table from you,
+                over good food, good conversation, and a night worth remembering.
+            </p>
+
+            <div class="details">
+
+                <div class="detail">
+                    <small>when</small>
+                    <strong>October 20, 2026</strong>
+                    <span>7:00 PM, don't be late</span>
+                </div>
+
+                <div class="detail">
+                    <small>where</small>
+                    <strong>Ro’s Steak &amp; Seafood</strong>
+                    <span>22 Malingap, Diliman, Quezon City</span>
+                </div>
+
+                <div class="detail">
+                    <small>dress code</small>
+                    <strong>All-Black Affair</strong>
+                    <span>anything will do, as long as it's you</span>
+                </div>
+
+            </div>
+
+            <div class="theme">
+                <div class="theme-title">one birthday. one dinner. one very good-looking date.</div>
+                <p>and yes, i mean you hehe.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ENDING -->
+    <section class="ending">
+        <div class="ending-content">
+
+            <div class="tiny">one last question</div>
+
+            <h2>
+                So.. will you let me<br>
+                <em>take you out?</em>
+            </h2>
+
+            <p>
+                No big speech. No pressure.<br>
+                Just you, me, a birthday dinner,<br>
+                and a beautiful evening ahead us.
+            </p>
+
+            <button class="button" onclick="revealMessage()">
+                Yes, I'll be your date.
+            </button>
+
+            <div class="secret" id="secret">
+                Yay! I was hoping you'd say yes. ♡
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        made for your birthday · october 20, 2026
+    </footer>
+
+</main>
+
+<script>
+    function revealMessage() {
+        const message = document.getElementById("secret");
+        message.classList.add("show");
+    }
+</script>
+
+</body>
+</html>
